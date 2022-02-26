@@ -1,4 +1,10 @@
 // Assignment code here
+const keys = {
+  upperCase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  lowerCase: "abcdefghijklmnopqrstuvwxyz",
+  number: "0123456789",
+  symbol: "!@#$%^&*()_+~|}{[]:;?<>,./-="
+}
 
 
 // Get references to the #generate element
@@ -6,15 +12,21 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   // Prompt password length btwn 8 - 128
- var characterLength = window.prompt("How many characters would you like for your password to contain?");
-
+ var characterLength = window.prompt("How many characters would you like for your password to contain between 8-128?");
+    if ((characterLength === "" || characterLength > 128 || characterLength < 8)) {
+        characterLength = window.prompt("Number of characters selected does not meet requirements. Please select between 8 - 128.");
+     validatePassword();
+    } else {
+      window.alert("Your character count is " + characterLength);
+    }
   // prompt user for the password criteria
 
   
 
   // prompt for number, lowercase, upper case, special characters
-  var lowercase = window.confirm("Select OK to include lowercase characters.");
+  var lowercase = window.confirmLowercase("Select OK to include lowercase characters.");
 
+    
   var uppercase = window.confirm("Select OK to include uppercase characters.");
 
   var numeric = window.confirm("Select OK to include numberic characters.");
