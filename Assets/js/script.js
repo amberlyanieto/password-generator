@@ -33,39 +33,39 @@ function validatePassword() {
     
     //if all options are selected. 
     else if (lowerConfirm && upperConfirm && numericConfirm && specialConfirm) {
-      selectedCharacters = lower.concat(upper, numeric, special);
+      selectedCharacters = lower + upper + numeric + special;
     }
       // if 3 options are selected
     else if (lowerConfirm && upperConfirm && numericConfirm) {
-      selectedCharacters = lower.concat(upper, numeric);
+      selectedCharacters = lower + upper + numeric;
     }
     else if (lowerConfirm && upperConfirm && specialConfirm) {
-      selectedCharacters = lower.concat(upper, special);
+      selectedCharacters = lower + upper + special;
     }
     else if (upperConfirm && numericConfirm && specialConfirm) {
-      selectedCharacters = upper.concat(numeric, special);
+      selectedCharacters = upper + numeric + special;
     }
     else if (lowerConfirm, numericConfirm, specialConfirm) {
-      selectedCharacters = lower.concat(numeric, special);
+      selectedCharacters = lower + numeric + special;
     }
     // if 2 options selected
     else if (upperConfirm, lowerConfirm){
-      selectedCharacters = upper.concat(lower);
+      selectedCharacters = upper + lower;
     }
     else if (upperConfirm, specialConfirm){
-      selectedCharacters = upper.concat(special);
+      selectedCharacters = upper + special;
     }
     else if (upperConfirm, numericConfirm){
-      selectedCharacters = upper.concat(numeric);
+      selectedCharacters = upper + numeric;
     }
     else if (specialConfirm, lowerConfirm){
-      selectedCharacters = special.concat(lower);
+      selectedCharacters = special + lower;
     }
     else if (numericConfirm, lowerConfirm){
-      selectedCharacters = numeric.concat(lower);
+      selectedCharacters = numeric + lower;
     }
     else if (specialConfirm, numericConfirm){
-      selectedCharacters = special.concat(numeric);
+      selectedCharacters = special + numeric;
     }
     // if only 1 option is selected
     else if (upperConfirm) {
@@ -80,7 +80,7 @@ function validatePassword() {
     else if (specialConfirm) {
       selectedCharacters = symbol;
     } 
-      
+     
     //random selection of of characters
     for (var i = 0; i < characterLength; i++) {
       var selectedOptions = selectedCharacters[Math.floor(Math.random() * selectedCharacters.length)];
