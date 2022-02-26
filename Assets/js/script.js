@@ -1,8 +1,8 @@
 // Assignment code here
-const upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-const lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-const numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const symbol = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "~", "|", ",", "}", "{", "[", "]", ":", "?", "<", ">", ",", ".", "/", "-", "="];
+var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "~", "|", ",", "}", "{", "[", "]", ":", "?", "<", ">", ",", ".", "/", "-", "="];
 var selectedCharacters;
 
 
@@ -48,25 +48,47 @@ function validatePassword() {
     else if (lowerConfirm, numericConfirm, specialConfirm) {
       selectedCharacters = lower.concat(numeric, special);
     }
-    
-
-
-
+    // if 2 options selected
+    else if (upperConfirm, lowerConfirm){
+      selectedCharacters = upper.concat(lower);
+    }
+    else if (upperConfirm, specialConfirm){
+      selectedCharacters = upper.concat(special);
+    }
+    else if (upperConfirm, numericConfirm){
+      selectedCharacters = upper.concat(numeric);
+    }
+    else if (specialConfirm, lowerConfirm){
+      selectedCharacters = special.concat(lower);
+    }
+    else if (numericConfirm, lowerConfirm){
+      selectedCharacters = numeric.concat(lower);
+    }
+    else if (specialConfirm, numericConfirm){
+      selectedCharacters = special.concat(numeric);
+    }
+    // if only 1 option is selected
+    else if (upperConfirm) {
+      selectedCharacters = upper;
+    } 
+    else if (lowerConfirm) {
+      selectedCharacters = lower;
+    } 
+    else if (numericConfirm) {
+      selectedCharacters = numeric;
+    } 
+    else if (specialConfirm) {
+      selectedCharacters = symbol;
+    } 
       
-    
-    
-    
-  
-
-  
-  
-    
-  
-  //input should be valideated- ensure length, one character tpye selected
-  
-  // generate  password based on criteria
-
-  // display password on the page 
+    //random selection of of characters
+    for (var i = 0; i < characterLength; i++) {
+      var selectedOptions = selectedCharacters[Math.floor(Math.random() * selectedCharacters.length)];
+      // generate  password based on criteria  
+      password = selectedOptions;
+    }
+     
+// display password on the page 
   return password;
 };
 
